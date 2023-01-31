@@ -25,6 +25,10 @@ jobs:
       with:
         required-ros-distributions: ${{ matrix.build-type == 'binary' && matrix.distro || '' }}
         use-ros2-testing: true
+    # Remove once setup-ros installs system version of mypy
+    - name: Pin mypy==0.942
+      run: |
+        python3 -m pip install 'mypy==0.942'
     - name: Install LTTng
       run: |
         sudo apt-get update
