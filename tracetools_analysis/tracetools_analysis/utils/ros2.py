@@ -320,7 +320,7 @@ class Ros2DataModelUtil(DataModelUtil):
         :param service_handle: the service handle value
         :return: a dictionary with name:value info, or `None` if it fails
         """
-        if service_handle not in self.data.services:
+        if service_handle not in self.data.services.index:
             return None
 
         node_handle = self.data.services.loc[service_handle, 'node_handle']
@@ -341,7 +341,7 @@ class Ros2DataModelUtil(DataModelUtil):
         :param client_handle: the client handle value
         :return: a dictionary with name:value info, or `None` if it fails
         """
-        if client_handle not in self.data.clients:
+        if client_handle not in self.data.clients.index:
             return None
 
         node_handle = self.data.clients.loc[client_handle, 'node_handle']
